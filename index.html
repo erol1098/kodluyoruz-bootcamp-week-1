@@ -19,12 +19,21 @@
     <div>Week-1 Project</div>
     <ul class="links">
       <li><a href="./index.html">Home</a></li>
-      <li><a href="./card.html">Add a card</a></li>
+      <!-- <li class="add-card"><a href="./card.html">Add a card</a></li> -->
     </ul>
   </nav>
   <main class="container">
+
+    <div class="add-form-wrapper">
+      <form class="add-form">
+        <input type="text" name="title" class="set-title" placeholder="Enter a title" autofocus>
+        <input type="text" name="url" class="set-url" placeholder="Enter a url">
+        <button>Add</button>
+      </form>
+      <h2>Add New Card</h2>
+    </div>
     <form class="search-form">
-      <input type="text" class="search-bar" placeholder="Search for a keyword...">
+      <input type="text" class="search-bar" placeholder="Search for a keyword..." autofocus>
     </form>
     <section class="card-box">
       <!-- Cards goes here -->

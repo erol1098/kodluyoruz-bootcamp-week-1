@@ -1,6 +1,7 @@
 "use strict";
 const cardBox = document.querySelector(".card-box");
 const searchBar = document.querySelector(".search-bar");
+const addForm = document.querySelector(".add-form");
 
 //? Get Data From API
 const getData = async () => {
@@ -46,4 +47,11 @@ searchBar.addEventListener("input", (e) => {
 cardBox.addEventListener("click", (e) => {
   const deletedCard = e.target.closest(".card");
   cardBox.removeChild(document.getElementById(deletedCard.id));
+});
+
+//? Add Data
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  console.log(formData);
 });

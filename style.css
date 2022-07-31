@@ -33,6 +33,49 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  position: relative;
+  margin-left: 0;
+}
+.add-form-wrapper {
+  height: 100vh;
+  position: absolute;
+  left: -22rem;
+  top: 0;
+  background-color: #5691c8;
+  padding: 3rem 1rem;
+
+  cursor: pointer;
+  transition: left 1s;
+  z-index: 1;
+  border-radius: 0 1rem 1rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.add-form-wrapper:hover {
+  left: 0;
+}
+.add-form-wrapper:hover > h2 {
+  visibility: hidden;
+}
+.add-form-wrapper > h2 {
+  writing-mode: vertical-rl;
+  /*text-orientation: sideways;*/
+  transform: scale(-1);
+  font-size: 2rem;
+}
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 20rem;
+}
+.add-form > input {
+  text-indent: 1rem;
+  font-size: 1.3rem;
+}
+.add-form > button {
+  font-size: 1.3rem;
 }
 .search-form {
   display: flex;
@@ -65,6 +108,7 @@ body {
   justify-content: space-evenly;
   gap: 2rem;
   padding: 0 2rem;
+  margin-left: 2rem;
 }
 
 .card {
