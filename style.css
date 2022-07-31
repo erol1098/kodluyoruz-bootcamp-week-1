@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: aquamarine;
+  border-bottom: 1px solid black;
+  font-size: 1.5rem;
+}
+.navbar > ul {
+  list-style: none;
+}
+.navbar > ul > li > a {
+  text-decoration: none;
+  color: chocolate;
+}
+.container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  height: 3rem;
+  /* border: 1px solid red; */
+}
+
+/* .search-bar {
+} */
+.search-btn {
+  padding: 3rem;
+}
+
+.card-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* border: 2px solid red; */
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.card > figure {
+  width: 150px;
+  text-align: center;
+  border-radius: 1rem;
+}
+img {
+  border-radius: 10%;
+}
+.card > figure > figcaption {
+  /* border: 1px solid red; */
+  height: 6rem;
+}
