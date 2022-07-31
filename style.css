@@ -10,19 +10,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: aquamarine;
-  border-bottom: 1px solid black;
+  padding: 2rem;
+  background: linear-gradient(to right, #457fca, #5691c8);
   font-size: 1.5rem;
+  color: #fff;
 }
-.navbar > ul {
+.links {
   list-style: none;
+  display: flex;
+  gap: 2rem;
 }
-.navbar > ul > li > a {
+.links > li > a {
   text-decoration: none;
-  color: chocolate;
+  color: #fff;
 }
+
 .container {
+  margin: 0 1rem;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -32,19 +36,29 @@ body {
 }
 .search-form {
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 2rem;
+  justify-content: center;
+  width: 50%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 2rem;
+  min-width: 375px;
+}
+
+.search-bar {
+  width: 100%;
+  text-indent: 4rem;
+  font-size: 1.3rem;
+  background-image: url("./assets/search-icon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  border: none;
   height: 3rem;
-  /* border: 1px solid red; */
+  margin: 0.3rem 1rem;
 }
-
-/* .search-bar {
-} */
-.search-btn {
-  padding: 3rem;
+.search-bar:focus {
+  outline: none;
 }
-
 .card-box {
   display: flex;
   flex-wrap: wrap;
@@ -58,6 +72,11 @@ body {
   /* border: 2px solid red; */
   border-radius: 1rem;
   padding: 1rem;
+  cursor: pointer;
+  transition: all 1s;
+}
+.card:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .card > figure {
@@ -69,6 +88,6 @@ img {
   border-radius: 10%;
 }
 .card > figure > figcaption {
-  /* border: 1px solid red; */
-  height: 6rem;
+  height: 7rem;
+  padding: 0.5rem;
 }
