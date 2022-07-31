@@ -16,7 +16,7 @@ const getData = async () => {
 let photoList;
 getData().then((res) => (photoList = res));
 
-const renderCards = (list) => {
+const renderCards = (list = []) => {
   cardBox.innerHTML = "";
   list.forEach((photo) => {
     const { albumId, id, title, thumbnailUrl } = photo;
