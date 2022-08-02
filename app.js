@@ -57,7 +57,7 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(addForm);
   console.log(formData.get("url"));
-  photoList.push({
+  photoList.unshift({
     albumId: Math.trunc(Math.random() * 100) + 1,
     id: Math.trunc(Math.random() * 100) + 1,
     title: formData.get("title"),
