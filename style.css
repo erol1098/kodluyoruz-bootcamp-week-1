@@ -153,6 +153,8 @@ img {
   height: 150px;
 }
 .card > figure > figcaption {
-  height: 7rem;
+  height: 8rem;
   padding: 0.5rem;
+  line-height: 1.3rem;
+  text-align: left;
 }
