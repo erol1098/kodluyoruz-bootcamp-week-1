@@ -26,7 +26,7 @@ body {
 }
 
 .container {
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -37,13 +37,11 @@ body {
   margin-left: 0;
 }
 .add-form-wrapper {
-  height: 100vh;
-  position: absolute;
+  position: fixed;
   left: -22rem;
-  top: 0;
+  top: 30vh;
   background-color: #5691c8;
   padding: 3rem 1rem;
-
   cursor: pointer;
   transition: left 1s;
   z-index: 1;
@@ -60,7 +58,6 @@ body {
 }
 .add-form-wrapper > h2 {
   writing-mode: vertical-rl;
-  /*text-orientation: sideways;*/
   transform: scale(-1);
   font-size: 2rem;
 }
@@ -73,9 +70,16 @@ body {
 .add-form > input {
   text-indent: 1rem;
   font-size: 1.3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: none;
 }
 .add-form > button {
   font-size: 1.3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
 }
 .search-form {
   display: flex;
@@ -85,10 +89,11 @@ body {
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 2rem;
   min-width: 375px;
+  margin: auto;
 }
 
 .search-bar {
-  width: 100%;
+  width: 80%;
   text-indent: 4rem;
   font-size: 1.3rem;
   background-image: url("./assets/search-icon.png");
@@ -97,23 +102,24 @@ body {
   background-size: contain;
   border: none;
   height: 3rem;
-  margin: 0.3rem 1rem;
+  margin: 0.5rem auto;
 }
 .search-bar:focus {
   outline: none;
 }
 .card-box {
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 2rem;
   padding: 0 2rem;
-  margin-left: 2rem;
+  user-select: none;
+  margin: auto;
 }
 
 .card {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  /* border: 2px solid red; */
   border-radius: 1rem;
   padding: 1rem;
   cursor: pointer;
@@ -130,6 +136,8 @@ body {
 }
 img {
   border-radius: 10%;
+  width: 150px;
+  height: 150px;
 }
 .card > figure > figcaption {
   height: 7rem;

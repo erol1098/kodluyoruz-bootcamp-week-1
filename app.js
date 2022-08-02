@@ -26,14 +26,17 @@ const renderCards = (list = []) => {
     card.classList.add("card");
     card.setAttribute("id", `${albumId}/${id}`);
     card.innerHTML = `<figure>
-      <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}" />
+      <img src=${thumbnailUrl} alt="Photo ${albumId}/${id} height="150px"/>
       <figcaption>${title}</figcaption></figure>`;
     cardBox.append(card);
   });
 };
 
 //? First Render
-window.addEventListener("load", () => renderCards(photoList));
+window.addEventListener("load", () => {
+  getData().then((res) => (photoList = res));
+  renderCards(photoList);
+});
 
 //? Filter by search
 searchBar.addEventListener("input", (e) => {
@@ -52,6 +55,14 @@ cardBox.addEventListener("click", (e) => {
 //? Add Data
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = new FormData();
-  console.log(formData);
+  const formData = new FormData(addForm);
+  console.log(formData.get("url"));
+  photoList.push({
+    albumId: Math.trunc(Math.random() * 100) + 1,
+    id: Math.trunc(Math.random() * 100) + 1,
+    title: formData.get("title"),
+    thumbnailUrl: formData.get("url"),
+  });
+  addForm.reset();
+  renderCards(photoList);
 });
