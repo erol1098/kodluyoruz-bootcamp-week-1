@@ -2,6 +2,7 @@
 const cardBox = document.querySelector(".card-box");
 const searchBar = document.querySelector(".search-bar");
 const addForm = document.querySelector(".add-form");
+let photoList;
 
 //? Get Data From API
 const getData = async () => {
@@ -14,8 +15,6 @@ const getData = async () => {
     console.log("error", error);
   }
 };
-let photoList;
-getData().then((res) => (photoList = res));
 
 //? Render Cards Method
 const renderCards = (list = []) => {
@@ -33,10 +32,15 @@ const renderCards = (list = []) => {
 };
 
 //? First Render
-window.addEventListener("load", () => {
-  getData().then((res) => (photoList = res));
-  renderCards(photoList);
-});
+(async () => {
+  try {
+    const res = await getData();
+    photoList = res;
+    renderCards(photoList);
+  } catch (error) {
+    console.log(error);
+  }
+})();
 
 //? Filter by search
 searchBar.addEventListener("input", (e) => {
