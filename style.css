@@ -10,10 +10,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
-  background: linear-gradient(to right, #457fca, #5691c8);
-  font-size: 1.5rem;
+  padding: 1.7rem 2rem;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  /* background: linear-gradient(to right, #0072ff, #00c6ff); */
+
+  font-size: 1.8rem;
   color: #fff;
+}
+.navbar > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+.logo {
+  width: 48px;
+  height: 48px;
 }
 .links {
   list-style: none;
@@ -40,7 +52,7 @@ body {
   position: fixed;
   left: -22rem;
   top: 30vh;
-  background-color: #5691c8;
+  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
   padding: 3rem 1rem;
   cursor: pointer;
   transition: left 1s;
@@ -49,6 +61,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  color: white;
 }
 .add-form-wrapper:hover {
   left: 0;
