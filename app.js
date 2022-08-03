@@ -30,9 +30,9 @@ const renderCards = (list = []) => {
     const { albumId, id, title, thumbnailUrl } = photo;
     const card = document.createElement("div");
     card.classList.add("card");
-    card.setAttribute("id", `${albumId}/${id}`);
-    card.innerHTML = `<figure>
-      <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}">
+    card.setAttribute("id", `${id}`);
+    card.innerHTML = `<figure><div class="img-wrapper">
+      <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}"></div>
       <figcaption>${title}</figcaption></figure><div class="icons"><i class="fa-solid fa-trash-can fa-xl" size={40}></i><i class="fa-solid fa-pen-to-square fa-xl"></i></div>`;
     cardBox.append(card);
   });
@@ -61,14 +61,10 @@ searchBar.addEventListener("input", (e) => {
 cardBox.addEventListener("click", (e) => {
   if (e.target.classList.contains("fa-trash-can")) {
     const deletedCard = e.target.closest(".card");
-    cardBox.removeChild(document.getElementById(deletedCard.id));
-    let arr = deletedCard.id.split("/");
-    photoList = photoList.filter(
-      (card) => card.albumId != arr[0] && card.id != arr[1]
-    );
+    photoList = photoList.filter((card) => card.id !== +deletedCard.id);
+    renderCards(photoList);
   }
   if (e.target.classList.contains("fa-pen-to-square")) {
-    window.scrollTo(0, 0);
     editedCard = e.target.closest(".card");
     editFormWrapper.classList.remove("invisible");
     const titleInput = document.querySelector(".edit-title");
@@ -90,14 +86,19 @@ editFormWrapper.addEventListener("click", (e) => {
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const editFormData = new FormData(editForm);
-  photoList.map((card) => {
-    const cardId = `${card.albumId}/${card.id}`;
-    if (cardId === editedCard.id) {
+  photoList.forEach((card) => {
+    if (+card.id === +editedCard.id) {
       card.title = editFormData.get("title");
       card.thumbnailUrl = editFormData.get("url");
-      return card;
-    } else return card;
+    }
   });
+  // photoList = photoList.map((card) => {
+  //   if (+card.id === +editedCard.id) {
+  //     card.title = editFormData.get("title");
+  //     card.thumbnailUrl = editFormData.get("url");
+  //     return card;
+  //   } else return card;
+  // });
   editFormWrapper.classList.add("invisible");
   editForm.reset();
   renderCards(photoList);
@@ -109,8 +110,8 @@ addForm.addEventListener("submit", (e) => {
   const formData = new FormData(addForm);
 
   photoList.unshift({
-    albumId: Math.trunc(Math.random() * 100) + 1,
-    id: Math.trunc(Math.random() * 100) + 1,
+    albumId: 2,
+    id: new Date().getTime(),
     title: formData.get("title"),
     thumbnailUrl: formData.get("url"),
   });
