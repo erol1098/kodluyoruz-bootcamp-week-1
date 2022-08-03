@@ -41,8 +41,7 @@ body {
 }
 
 .container {
-  /* margin: 0 1rem; */
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,8 +106,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgb(102, 125, 182, 0.8);
   z-index: 2;
 }
@@ -197,11 +196,14 @@ img {
   border-radius: 10%;
 }
 .card > figure > figcaption {
-  height: 9rem;
+  height: 8rem;
+  margin: 1rem 0;
   padding: 0.5rem;
   line-height: 1.3rem;
   text-align: left;
+  word-wrap: break-word;
   overflow: auto;
+  /* word-break: break-all; */
 }
 .icons {
   display: flex;

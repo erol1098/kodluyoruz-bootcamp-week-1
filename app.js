@@ -92,13 +92,6 @@ editForm.addEventListener("submit", (e) => {
       card.thumbnailUrl = editFormData.get("url");
     }
   });
-  // photoList = photoList.map((card) => {
-  //   if (+card.id === +editedCard.id) {
-  //     card.title = editFormData.get("title");
-  //     card.thumbnailUrl = editFormData.get("url");
-  //     return card;
-  //   } else return card;
-  // });
   editFormWrapper.classList.add("invisible");
   editForm.reset();
   renderCards(photoList);
@@ -117,4 +110,5 @@ addForm.addEventListener("submit", (e) => {
   });
   addForm.reset();
   renderCards(photoList);
+  window.scroll(0, 0);
 });
