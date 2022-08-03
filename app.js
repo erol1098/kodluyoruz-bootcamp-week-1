@@ -67,7 +67,6 @@ cardBox.addEventListener("click", (e) => {
     );
   }
   if (e.target.classList.contains("fa-pen-to-square")) {
-    window.scrollTo(0, 0);
     editedCard = e.target.closest(".card");
     editFormWrapper.classList.remove("invisible");
     const titleInput = document.querySelector(".edit-title");
