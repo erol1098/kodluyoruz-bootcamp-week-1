@@ -21,6 +21,10 @@ const getData = async () => {
 //? Render Cards Method
 const renderCards = (list = []) => {
   cardBox.innerHTML = "";
+  if (list.length === 0) {
+    cardBox.innerHTML = "<h2>No Item Found</h2>";
+    return;
+  }
   list.forEach((photo) => {
     const { albumId, id, title, thumbnailUrl } = photo;
     const card = document.createElement("div");
@@ -58,12 +62,12 @@ cardBox.addEventListener("click", (e) => {
     const deletedCard = e.target.closest(".card");
     cardBox.removeChild(document.getElementById(deletedCard.id));
     let arr = deletedCard.id.split("/");
-    console.log(arr);
     photoList = photoList.filter(
       (card) => card.albumId != arr[0] && card.id != arr[1]
     );
   }
   if (e.target.classList.contains("fa-pen-to-square")) {
+    window.scrollTo(0, 0);
     editedCard = e.target.closest(".card");
     editFormWrapper.classList.remove("invisible");
     const titleInput = document.querySelector(".edit-title");
