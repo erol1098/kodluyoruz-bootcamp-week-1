@@ -21,21 +21,28 @@ const getData = async () => {
 //? Render Cards Method
 const renderCards = (list = []) => {
   cardBox.innerHTML = "";
-
   if (list.length === 0) {
     cardBox.innerHTML = "<h2>No Item Found</h2>";
     return;
   }
+  // list.forEach((photo) => {
+  //   const { albumId, id, title, thumbnailUrl } = photo;
+  //   const card = document.createElement("div");
+  //   card.classList.add("card");
+  //   card.setAttribute("id", `${id}`);
+  //   card.innerHTML = `<figure><div class="img-wrapper">
+  //     <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}"></div>
+  //     <figcaption>${title}</figcaption></figure><div class="icons"><i class="fa-solid fa-trash-can fa-xl" size={40}></i><i class="fa-solid fa-pen-to-square fa-xl"></i></div>`;
+  //   cardBox.append(card);
+  // });
+  let innerHtml = "";
   list.forEach((photo) => {
     const { albumId, id, title, thumbnailUrl } = photo;
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.setAttribute("id", `${id}`);
-    card.innerHTML = `<figure><div class="img-wrapper">
-      <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}"></div>
-      <figcaption>${title}</figcaption></figure><div class="icons"><i class="fa-solid fa-trash-can fa-xl" size={40}></i><i class="fa-solid fa-pen-to-square fa-xl"></i></div>`;
-    cardBox.append(card);
+    innerHtml += `<div class="card" id=${id} ><figure><div class="img-wrapper">
+     <img src=${thumbnailUrl} alt="Photo ${albumId}/${id}"></div>
+     <figcaption>${title}</figcaption></figure><div class="icons"><i class="fa-solid fa-trash-can fa-xl" size={40}></i><i class="fa-solid fa-pen-to-square fa-xl"></i></div></div>`;
   });
+  cardBox.innerHTML = innerHtml;
 };
 
 //? First Render
