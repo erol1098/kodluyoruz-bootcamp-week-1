@@ -59,7 +59,7 @@ const renderCards = (list = []) => {
 //? Filter by search
 searchBar.addEventListener("input", (e) => {
   const filteredList = photoList.filter((photo) =>
-    photo.title.includes(e.target.value)
+    photo.title.includes(e.target.value.toLowerCase())
   );
   renderCards(filteredList);
 });
